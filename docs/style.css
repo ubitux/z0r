@@ -1,0 +1,7 @@
+
+body  { background-color:#444; }
+div.c { float:left; border:1px solid #aaa; margin:5px; padding:0; }
+div.i { display:block; background-color:#222; background-repeat:no-repeat; width:128px; height:80px; }
+img   { padding:0; margin:0; }
+h1    { background-color:black; margin:0; border-bottom:1px solid #aaa; font-size:0.7em; }
+a     { color:white; text-decoration:none; }

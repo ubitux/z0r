@@ -32,6 +32,7 @@ EXCLUDE += 6969
 
 ZLIST = $(filter-out $(EXCLUDE),$(shell seq $(ZFIRST) $(ZLAST)))
 REFS  = $(addsuffix .png,$(addprefix ref/$(ZPREFIX),$(ZLIST)))
+SWFS  = $(addsuffix .swf,$(addprefix swf/$(ZPREFIX),$(ZLIST)))
 
 all: $(REFS) ref/ref.png
 	$(PYTHON) z0r.py $(W) $(H) $(ZFIRST) $(ZLAST)
@@ -42,4 +43,5 @@ ref/ref.png:
 swf/%.swf:
 	curl -L -s -f https://z0r.de/L/$(notdir $@) -o $@
 
+.PRECIOUS: $(SWFS)
 .PHONY: all

@@ -36,6 +36,7 @@ SWFS  = $(addsuffix .swf,$(addprefix swf/$(ZPREFIX),$(ZLIST)))
 
 all: $(REFS) ref/ref.png
 	$(PYTHON) z0r.py $(W) $(H) $(ZFIRST) $(ZLAST)
+swfs: $(SWFS)
 ref/$(ZPREFIX)%.png: swf/$(ZPREFIX)%.swf
 	$(RUFFLE) -s --frames 1 --width $(W) --height $(H) $< $@
 ref/ref.png:
@@ -44,4 +45,4 @@ swf/$(ZPREFIX)%.swf:
 	curl -L -s -f https://z0r.de/L/$(notdir $@) -o $@
 
 .PRECIOUS: $(SWFS)
-.PHONY: all
+.PHONY: all swfs

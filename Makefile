@@ -40,7 +40,7 @@ ref/$(ZPREFIX)%.png: swf/$(ZPREFIX)%.swf
 	$(RUFFLE) -s --frames 1 --width $(W) --height $(H) $< $@
 ref/ref.png:
 	$(CONVERT) -size $(W)x$(H) "canvas:#222" $@
-swf/%.swf:
+swf/$(ZPREFIX)%.swf:
 	curl -L -s -f https://z0r.de/L/$(notdir $@) -o $@
 
 .PRECIOUS: $(SWFS)

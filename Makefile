@@ -1,7 +1,9 @@
 CURL    ?= curl
 PYTHON  ?= python3
 CONVERT ?= convert
-RUFFLE  ?= ~/src/ruffle/target/debug/exporter
+
+# Needs to be built with `--features=lzma` from within the exporter directory
+RUFFLE  ?= ~/src/ruffle/target/release/exporter
 
 W       ?= 128
 H       ?= 80
@@ -22,8 +24,8 @@ EXCLUDE += 2674
 # MP4 file
 EXCLUDE += 3099
 
-# LZMA unsupported in ruffle
-EXCLUDE += 4399 6858 6975 7101 7144 7242 7246 7293 7522 7673 7758
+# LZMA
+#EXCLUDE += 4399 6858 6975 7101 7144 7242 7246 7293 7522 7673 7758
 
 # Error decompressing SWF, may be corrupt: failed to fill whole buffer
 EXCLUDE += 6969

@@ -10,25 +10,20 @@ H       ?= 80
 
 ZPREFIX = z0r-de_
 ZFIRST  = 0
-ZLAST   = 7911
+ZLAST   = 7953
 
-# https://github.com/ruffle-rs/ruffle/issues/720
-EXCLUDE = 1722 1724 2021 2279 3335 3536 3845 5362 5586 6138 7765 7766
+# Error in Queue::write_texture: copy of 0..173352 would end up overruning the
+# bounds of the Source buffer of size 57784 (src/backend/direct.rs:130:9)
+EXCLUDE += 4167 6009
+
+# Infinite (very long?) loop
+EXCLUDE += 1703 1931 2021 6212
 
 # 404
 EXCLUDE += 2381 7546
 
-# Error decompressing SWF, may be corrupt: Adler32 checksum mismatched
-EXCLUDE += 2674
-
 # MP4 file
 EXCLUDE += 3099
-
-# LZMA
-#EXCLUDE += 4399 6858 6975 7101 7144 7242 7246 7293 7522 7673 7758
-
-# Error decompressing SWF, may be corrupt: failed to fill whole buffer
-EXCLUDE += 6969
 
 ZLIST = $(filter-out $(EXCLUDE),$(shell seq $(ZFIRST) $(ZLAST)))
 REFS  = $(addsuffix .png,$(addprefix ref/$(ZPREFIX),$(ZLIST)))

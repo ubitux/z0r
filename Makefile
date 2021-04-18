@@ -13,9 +13,8 @@ ZPREFIX = z0r-de_
 ZFIRST  = 0
 ZLAST   = 7953
 
-# Error in Queue::write_texture: copy of 0..173352 would end up overruning the
-# bounds of the Source buffer of size 57784 (src/backend/direct.rs:130:9)
-EXCLUDE += 4167 6009
+# https://github.com/ruffle-rs/ruffle/issues/3299
+EXCLUDE += 630 7765 7766
 
 # Infinite (very long?) loop
 EXCLUDE += 1703 1931 2021 6212

@@ -2,7 +2,8 @@ CURL    ?= curl
 PYTHON  ?= python3
 CONVERT ?= convert
 
-# Needs to be built with `--features=lzma` from within the exporter directory
+# Needs to be built with `cargo build --release --features=lzma` from within
+# the exporter directory
 RUFFLE  ?= ~/src/ruffle/target/release/exporter
 
 W       ?= 128

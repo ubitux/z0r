@@ -16,8 +16,9 @@ ZLAST   = 7953
 # https://github.com/ruffle-rs/ruffle/issues/3299
 EXCLUDE += 630 7765 7766
 
-# Infinite (very long?) loop
-EXCLUDE += 1703 1931 2021 6212
+# Infinite loop + memleak
+# https://github.com/ruffle-rs/ruffle/issues/720
+EXCLUDE += 2021
 
 # 404
 EXCLUDE += 2381 7546
